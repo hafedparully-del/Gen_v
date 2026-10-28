@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Biodata Mahasantri PeTIK - Space Edition</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === TEMA LUAR ANGKASA (SPACE THEME) & ANIMASI GRADASI === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+            background: linear-gradient(45deg, #0b0c10, #1f2833, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: spaceGradient 15s ease infinite;
+            position: relative;
+            overflow: hidden; /* Mencegah scrollbar muncul karena elemen animasi */
+        }
+
+        @keyframes spaceGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Bintang-bintang background (Twinkling stars) */
+        .stars-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px);
+            background-size: 550px 550px, 350px 350px, 250px 250px; 
+            background-position: 0 0, 40px 60px, 130px 270px;
+            opacity: 0.4;
+            z-index: 0;
+            animation: twinkle 5s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.7; }
+        }
+
+        /* === ANIMASI PLANET === */
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+            animation: floatPlanet 20s infinite ease-in-out alternate;
+        }
+
+        /* Planet 1 (Mirip Mars / Jupiter) */
+        .planet-1 {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 5%;
+            background: radial-gradient(circle at 30% 30%, #ff7e5f, #feb47b, #591b1b);
+            box-shadow: inset -20px -20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(255, 126, 95, 0.4);
+            animation-duration: 25s;
+        }
+
+        /* Planet 2 (Bulan / Planet Es Biru) */
+        .planet-2 {
+            width: 80px;
+            height: 80px;
+            bottom: 15%;
+            right: 8%;
+            background: radial-gradient(circle at 30% 30%, #00c6ff, #0072ff, #001f4d);
+            box-shadow: inset -10px -10px 20px rgba(0,0,0,0.8), 0 0 15px rgba(0, 198, 255, 0.4);
+            animation-duration: 18s;
+            animation-direction: alternate-reverse;
+        }
+
+        /* Planet 3 (Planet Bercincin) */
+        .planet-3 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 15%;
+            background: radial-gradient(circle at 30% 30%, #d4fc79, #96e6a1, #2b580c);
+            box-shadow: inset -15px -15px 25px rgba(0,0,0,0.8);
+            animation-duration: 30s;
+        }
+        /* Cincin planet 3 */
+        .planet-3::before {
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 160px;
+            height: 40px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            box-shadow: 0 0 10px rgba(255,255,255,0.2), inset 0 0 10px rgba(255,255,255,0.2);
+        }
+
+        @keyframes floatPlanet {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-40px) rotate(15deg); }
+        }
+
+        /* === ANIMASI BINTANG JATUH (SHOOTING STARS) === */
+        .shooting-star {
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255,255,255,1), transparent);
+            border-radius: 50%;
+            top: -10%;
+            left: 110%;
+            transform: rotate(-45deg);
+            opacity: 0;
+            z-index: 0;
+            animation: shooting 4s linear infinite;
+        }
+        /* Ekor/kepala bintang terang */
+        .shooting-star::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 3px #fff;
+        }
+
+        /* Variasi waktu dan posisi munculnya bintang jatuh */
+        .star-1 { animation-delay: 1s; top: 10%; left: 80%; }
+        .star-2 { animation-delay: 3.5s; top: 30%; left: 100%; width: 200px; }
+        .star-3 { animation-delay: 6s; top: -5%; left: 60%; width: 100px; }
+
+        @keyframes shooting {
+            0% { transform: translate(0, 0) rotate(-45deg); opacity: 1; }
+            100% { transform: translate(-1000px, 1000px) rotate(-45deg); opacity: 0; }
+        }
+
+        /* === KONTAINER GLASSMORPHISM === */
+        .form-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.05); /* Transparan */
+            backdrop-filter: blur(12px); /* Efek Kaca */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 
+                        inset 0 0 15px rgba(255,255,255,0.05);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: -webkit-linear-gradient(#fff, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label.main-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #d1d8e0;
+        }
+
+        /* === INPUTS & TEXTAREA === */
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            color: #a29bfe;
+            font-size: 18px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        textarea.form-control {
+            padding: 15px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-control:focus {
+            border-color: #a29bfe;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 10px rgba(162, 155, 254, 0.3);
+        }
+
+        /* SELECT DROP DOWN */
+        select.form-control {
+            padding-left: 15px;
+            appearance: none;
+            cursor: pointer;
+        }
+        select.form-control option {
+            background: #1f2833;
+            color: #fff;
+        }
+
+        /* === RADIO & CHECKBOX === */
+        .options-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .custom-radio, .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 14px;
+            color: #b2bec3;
+            transition: 0.3s;
+        }
+
+        .custom-radio:hover, .custom-checkbox:hover {
+            color: #fff;
+        }
+
+        .custom-radio input, .custom-checkbox input {
+            display: none; 
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #a29bfe;
+            display: inline-block;
+            margin-right: 8px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .custom-radio .checkmark {
+            border-radius: 50%;
+        }
+
+        .custom-radio input:checked + .checkmark::after {
+            content: "";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: #a29bfe;
+            border-radius: 50%;
+        }
+
+        .custom-checkbox .checkmark {
+            border-radius: 4px;
+        }
+
+        .custom-checkbox input:checked + .checkmark {
+            background: #a29bfe;
+        }
+        .custom-checkbox input:checked + .checkmark::after {
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: #0b0c10;
+            font-size: 12px;
+        }
+
+        /* === TOMBOL SUBMIT === */
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.6);
+            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+        }
+
+        @media (max-width: 500px) {
+            .form-container {
+                padding: 25px 20px;
+            }
+            .planet-1 { width: 100px; height: 100px; }
+            .planet-3 { display: none; } /* Sembunyikan sebagian planet di layar kecil */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animasi Background Latar -->
+    <div class="stars-bg"></div>
+
+    <!-- Planet 3D -->
+    <div class="planet planet-1"></div>
+    <div class="planet planet-2"></div>
+    <div class="planet planet-3"></div>
+
+    <!-- Bintang Jatuh -->
+    <div class="shooting-star star-1"></div>
+    <div class="shooting-star star-2"></div>
+    <div class="shooting-star star-3"></div>
+
+    <div class="form-container">
+        <form>
+            <h1>Biodata Mahasantri PeTIK</h1>
+
+            <div class="form-group">
+                <label class="main-label">Nama Lengkap</label>
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" class="form-control" placeholder="Masukkan nama Anda..." required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="main-label">NIM</label>
+                <div class="input-group">
+                    <i class="fa-solid fa-id-card"></i>
+                    <input type="text" class="form-control" placeholder="Masukkan NIM Anda..." required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="main-label">Email</label>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" class="form-control" placeholder="Masukkan email..." required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="main-label">Jurusan</label>
+                <div class="options-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="jurusan" value="sd">
+                        <span class="checkmark"></span>
+                        Software Development
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="jurusan" value="dm">
+                        <span class="checkmark"></span>
+                        Digital Marketing
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="main-label">Matakuliah</label>
+                <select name="matakuliah" class="form-control">
+                    <option value="" disabled selected>-- Pilih Matakuliah --</option>
+                    <option value="wd">Web Design</option>
+                    <option value="db">Database SQL</option>
+                    <option value="PHP">Pemrograman PHP</option>
+                    <option value="py">Pemrograman Python</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="main-label">Hobi</label>
+                <div class="options-group">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="hobi" value="mancing">
+                        <span class="checkmark"></span> Mancing
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="hobi" value="membaca" checked>
+                        <span class="checkmark"></span> Membaca
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="hobi" value="olahraga" checked>
+                        <span class="checkmark"></span> Olahraga
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="hobi" value="menonton">
+                        <span class="checkmark"></span> Menonton
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="main-label">Alamat Lengkap</label>
+                <textarea name="alamat" class="form-control" placeholder="Tuliskan alamat lengkap Anda di sini..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-rocket" style="margin-right: 8px;"></i> Masuk
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
