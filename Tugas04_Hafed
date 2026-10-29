@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media &amp; Layout</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/WhatsApp%20Image%202026-10-29%20at%2009.31.20.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------- Dasar ---------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #fff;
+            text-align: center;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            background-image: url("assets/images/jori.jpg");
+            background-size: cover;        /* gambar menutupi seluruh layar */
+            background-position: center;   /* posisi tengah */
+            background-repeat: no-repeat;  /* tidak diulang */
+            background-attachment: fixed;  /* tetap saat di-scroll */
+        }
+
+        /* Lapisan gelap transparan supaya konten tetap terbaca */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: -1;
+        }
+
+        /* ---------- Langit bintang & meteor ---------- */
+        #sky {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            padding-bottom: 40px;
+        }
+
+        /* ---------- Judul ---------- */
+        .title {
+            margin: 28px 0 8px;
+            font-family: "Poppins", system-ui, sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 7vw, 3.8rem);
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+            background: linear-gradient(90deg, #ff6ec7, #ffd86e, #6effc7, #6ec8ff, #c06eff, #ff6ec7);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            filter: drop-shadow(0 0 16px rgba(255, 140, 220, 0.45));
+            animation: shine 7s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 300% 0;
+            }
+        }
+
+        /* ---------- Media ---------- */
+        hr {
+            border: 0;
+            height: 1px;
+            margin: 28px 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 12px 40px rgba(0, 0, 0, 0.55);
+        }
+
+        audio {
+            width: min(100%, 420px);
+        }
+
+        video,
+        iframe {
+            max-width: 100%;
+            border: 0;
+            border-radius: 14px;
+            background: #000;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+        }
+
+        :focus-visible {
+            outline: 3px solid #ffd86e;
+            outline-offset: 3px;
+        }
+
+        /* ---------- Kursor kucing ---------- */
+        html.has-cat,
+        html.has-cat * {
+            cursor: none !important;
+        }
+
+        .cat {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 96px;
+            height: 72px;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.25s;
+            will-change: transform;
+        }
+
+        .cat.visible {
+            opacity: 1;
+        }
+
+        .cat svg {
+            display: block;
+            overflow: visible;
+            transform-origin: 74px 31px;
+            transition: transform 0.18s ease;
+        }
+
+        .cat.pressed svg {
+            transform: scale(0.88) scaleX(var(--dir, 1));
+        }
+
+        .cat .tail {
+            transform-origin: 22px 38px;
+            animation: wag 1.6s ease-in-out infinite alternate;
+        }
+
+        .cat .eyes {
+            transform-origin: 62px 25px;
+            animation: blink 4.5s infinite;
+        }
+
+        .cat .leg {
+            animation: step 0.26s linear infinite alternate paused;
+        }
+
+        .cat .l1 { transform-origin: 23.5px 44px; }
+        .cat .l2 { transform-origin: 33.5px 44px; animation-direction: alternate-reverse; }
+        .cat .l3 { transform-origin: 50.5px 44px; animation-direction: alternate-reverse; }
+        .cat .l4 { transform-origin: 58.5px 44px; }
+
+        .cat.walking .leg { animation-play-state: running; }
+        .cat.walking .tail { animation-duration: 0.45s; }
+        .cat.walking .bob { animation: bob 0.26s ease-in-out infinite alternate; }
+
+        @keyframes wag {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(14deg); }
+        }
+
+        @keyframes blink {
+            0%, 94%, 100% { transform: scaleY(1); }
+            97% { transform: scaleY(0.1); }
+        }
+
+        @keyframes step {
+            from { transform: rotate(-28deg); }
+            to { transform: rotate(28deg); }
+        }
+
+        @keyframes bob {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1.5px); }
+        }
+
+        /* Jejak kaki saat klik */
+        .paw {
+            position: fixed;
+            z-index: 9998;
+            pointer-events: none;
+            font-size: 22px;
+            animation: pawfloat 0.9s ease-out forwards;
+        }
+
+        @keyframes pawfloat {
+            from { opacity: 1; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 0; transform: translate(-50%, -140%) scale(1.3); }
+        }
+
+        /* ---------- Hormati preferensi kurangi gerak ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            .title { animation: none; }
+            .cat *, .paw { animation: none !important; }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="sky" aria-hidden="true"></canvas>
+
+    <!-- Kursor kucing -->
+    <div id="cat" class="cat" aria-hidden="true">
+        <svg viewBox="0 0 80 60" width="96" height="72">
+            <g class="bob">
+                <!-- ekor -->
+                <path class="tail" d="M22 38 C8 38 4 24 10 14" fill="none" stroke="#e8923a" stroke-width="6" stroke-linecap="round" />
+                <!-- kaki -->
+                <rect class="leg l1" x="20" y="44" width="7" height="12" rx="3.5" fill="#c9741f" />
+                <rect class="leg l2" x="30" y="44" width="7" height="12" rx="3.5" fill="#e8923a" />
+                <rect class="leg l3" x="47" y="44" width="7" height="12" rx="3.5" fill="#c9741f" />
+                <rect class="leg l4" x="55" y="44" width="7" height="12" rx="3.5" fill="#e8923a" />
+                <!-- badan -->
+                <ellipse cx="38" cy="38" rx="22" ry="12" fill="#f5a54a" />
+                <path d="M28 27 q2 5 0 9 M36 26 q2 5 0 10 M44 27 q2 5 0 9" stroke="#d9822b" stroke-width="2.2" fill="none" stroke-linecap="round" />
+                <!-- telinga -->
+                <path d="M51 20 L52 5 L63 14 Z" fill="#f5a54a" />
+                <path d="M61 14 L72 5 L73 20 Z" fill="#f5a54a" />
+                <path d="M54 16 L54.5 9.5 L59 13.5 Z" fill="#ffb4c0" />
+                <path d="M65 13.5 L69.5 9.5 L70 16 Z" fill="#ffb4c0" />
+                <!-- kepala -->
+                <circle cx="62" cy="26" r="12.5" fill="#f5a54a" />
+                <path d="M62 14 v4 M57.5 15 l1 3 M66.5 15 l-1 3" stroke="#d9822b" stroke-width="1.6" stroke-linecap="round" />
+                <ellipse cx="62" cy="31" rx="5" ry="3.6" fill="#fff3e0" />
+                <!-- mata -->
+                <g class="eyes">
+                    <ellipse cx="56.5" cy="25" rx="2" ry="2.6" fill="#2b1b0e" />
+                    <ellipse cx="67.5" cy="25" rx="2" ry="2.6" fill="#2b1b0e" />
+                    <circle cx="57.1" cy="24" r="0.7" fill="#fff" />
+                    <circle cx="68.1" cy="24" r="0.7" fill="#fff" />
+                </g>
+                <!-- hidung, mulut, kumis -->
+                <path d="M60.5 29.2 h3 l-1.5 1.9 z" fill="#ff8fa3" />
+                <path d="M62 31.1 v1 M62 32.1 q-1.6 1.4 -3 0.6 M62 32.1 q1.6 1.4 3 0.6" stroke="#8a4b1c" stroke-width="0.8" fill="none" stroke-linecap="round" />
+                <path d="M55 30 l-8 -1.5 M55 32 l-8 1.5 M69 30 l8 -1.5 M69 32 l8 1.5" stroke="#fff" stroke-opacity="0.85" stroke-width="0.7" stroke-linecap="round" />
+            </g>
+        </svg>
+    </div>
+
+    <main class="content">
+        <h1 class="title">MEDIA DAN LAYOUT</h1>
+
+        <!-- tag img -->
+        <hr>
+        <img src="assets/images/jori.jpg" alt="Onic Owi" width="50%">
+
+        <!-- tag audio -->
+        <hr>
+        <audio controls>
+            <source src="assets/audio/ssstik.io_1793236922811.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- tag video -->
+        <hr>
+        <video width="300" controls>
+            <source src="assets/video/ssstik.io_1793237948712.mp4" type="video/mp4">
+        </video>
+
+        <!-- tag embed/iframe -->
+        <hr>
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/ZK8dboHDw5Y?si=w7VqUFGy95hr7eZz"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+    </main>
+
+    <script>
+        /* ===== Bintang & meteor ===== */
+        (function () {
+            const canvas = document.getElementById("sky");
+            const ctx = canvas.getContext("2d");
+            const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+            const colors = ["#ffffff", "#cfe3ff", "#fff1c9"];
+            let w, h, stars = [], meteors = [], nextMeteor = 600, last = 0;
+
+            function resize() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                w = window.innerWidth;
+                h = window.innerHeight;
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+                const count = Math.min(220, Math.floor((w * h) / 6000));
+                stars = Array.from({ length: count }, () => ({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r: Math.random() * 1.4 + 0.3,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: Math.random() * 1.5 + 0.5,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                }));
+                if (reduceMotion) draw(0, 0);
+            }
+
+            function spawnMeteor() {
+                const angle = (Math.PI / 180) * (28 + Math.random() * 20);
+                const speed = 9 + Math.random() * 6;
+                meteors.push({
+                    x: w * (0.3 + Math.random() * 0.9),
+                    y: -20 - Math.random() * h * 0.3,
+                    vx: -Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    len: 120 + Math.random() * 120
+                });
+            }
+
+            function draw(t, dt) {
+                ctx.clearRect(0, 0, w, h);
+
+                for (const s of stars) {
+                    const twinkle = 0.45 + 0.55 * (0.5 + 0.5 * Math.sin(t * 0.001 * s.speed + s.phase));
+                    ctx.globalAlpha = twinkle;
+                    ctx.fillStyle = s.color;
+                    if (s.r > 1.3) {
+                        ctx.shadowColor = s.color;
+                        ctx.shadowBlur = 8;
+                    }
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+                ctx.globalAlpha = 1;
+
+                for (let i = meteors.length - 1; i >= 0; i--) {
+                    const m = meteors[i];
+                    m.x += m.vx * dt;
+                    m.y += m.vy * dt;
+
+                    const speed = Math.hypot(m.vx, m.vy);
+                    const tx = m.x - (m.vx / speed) * m.len;
+                    const ty = m.y - (m.vy / speed) * m.len;
+                    const g = ctx.createLinearGradient(m.x, m.y, tx, ty);
+                    g.addColorStop(0, "rgba(255,255,255,1)");
+                    g.addColorStop(0.3, "rgba(160,210,255,0.55)");
+                    g.addColorStop(1, "rgba(160,210,255,0)");
+
+                    ctx.strokeStyle = g;
+                    ctx.lineWidth = 2;
+                    ctx.lineCap = "round";
+                    ctx.beginPath();
+                    ctx.moveTo(m.x, m.y);
+                    ctx.lineTo(tx, ty);
+                    ctx.stroke();
+
+                    ctx.shadowColor = "#9fd2ff";
+                    ctx.shadowBlur = 14;
+                    ctx.fillStyle = "#fff";
+                    ctx.beginPath();
+                    ctx.arc(m.x, m.y, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    if (m.x < -m.len || m.y > h + m.len) meteors.splice(i, 1);
+                }
+            }
+
+            function loop(t) {
+                const dt = Math.min((t - last) / 16.67, 3);
+                last = t;
+                if (t > nextMeteor) {
+                    spawnMeteor();
+                    nextMeteor = t + 700 + Math.random() * 1800;
+                }
+                draw(t, dt);
+                requestAnimationFrame(loop);
+            }
+
+            window.addEventListener("resize", resize);
+            resize();
+            if (!reduceMotion) requestAnimationFrame(loop);
+        })();
+
+        /* ===== Kursor kucing ===== */
+        (function () {
+            const hasMouse = matchMedia("(hover: hover) and (pointer: fine)").matches;
+            if (!hasMouse) return;
+
+            const root = document.documentElement;
+            const cat = document.getElementById("cat");
+            const svg = cat.querySelector("svg");
+            const HEAD_X = 74, HEAD_Y = 31; // titik kepala = posisi kursor
+
+            let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+            let x = tx, y = ty, dir = 1, started = false;
+
+            root.classList.add("has-cat");
+
+            document.addEventListener("mousemove", (e) => {
+                tx = e.clientX;
+                ty = e.clientY;
+                if (!started) {
+                    x = tx;
+                    y = ty;
+                    started = true;
+                    cat.classList.add("visible");
+                }
+            });
+
+            document.addEventListener("mouseleave", () => cat.classList.remove("visible"));
+            document.addEventListener("mouseenter", () => { if (started) cat.classList.add("visible"); });
+
+            document.addEventListener("mousedown", (e) => {
+                cat.classList.add("pressed");
+                const paw = document.createElement("span");
+                paw.className = "paw";
+                paw.textContent = "🐾";
+                paw.style.left = e.clientX + "px";
+                paw.style.top = e.clientY + "px";
+                document.body.appendChild(paw);
+                paw.addEventListener("animationend", () => paw.remove());
+            });
+            document.addEventListener("mouseup", () => cat.classList.remove("pressed"));
+
+            function tick() {
+                const dx = tx - x;
+                const dy = ty - y;
+                x += dx * 0.22;
+                y += dy * 0.22;
+
+                if (Math.abs(dx) > 3) dir = dx > 0 ? 1 : -1;
+                cat.style.transform = `translate3d(${x - HEAD_X}px, ${y - HEAD_Y}px, 0)`;
+                cat.style.setProperty("--dir", dir);
+                svg.style.transform = cat.classList.contains("pressed")
+                    ? `scale(0.88) scaleX(${dir})`
+                    : `scaleX(${dir})`;
+                cat.classList.toggle("walking", Math.hypot(dx, dy) > 6);
+
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        })();
+    </script>
+</body>
+
+</html>
