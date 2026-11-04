@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            height: 10vh;
+        }
+        .header{
+            background-color: rgb(14, 108, 145);
+            color: rgb(240, 240, 243);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 36px;
+            text-align: center;
+            padding: 20px;
+        }
+        .main{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+        .android{
+            background-color: yellow;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            flex: 1 1 25%;
+            order: 1;
+        }
+        .article{
+            background-color: aliceblue;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+            flex: 1 1 50%;
+            order: 2;
+        }
+        .news{
+            background-color: yellow;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            flex: 1 1 25%;
+            order: 3;
+        }
+        .footer{
+            background-color: rgb(14, 108, 145);
+            color: rgb(246, 246, 248);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            PeTIK II Jombang
+    </div>
+    <div class="main">
+        <div class="android">
+        <h2 style="font-size: 36px; margin-left: 10px; text-align: 10px;">android</h2>
+        <i class="fa-brands fa-android"></i>
+    </div>
+    <div class="article">
+        <h2 style="font-size: 36px; margin-left: 10px; text-align: center;">Informasi Seputar PeTIK jombang</h2>
+        <p style="margin-left: 10px; margin-right: 10px; font-size: 15px; text-align: center;">Petik PeTIK Jombang merupakan lembaga pendidikan vokasi Teknologi Informasi dan Komunikasi dengan dukungan pembelajaran bidang kepesantrenan (Kajian Kitab Kuning) dari ulama-ulama yang memiliki sanad keilmuan yang jelas.
+
+PeTIK Jombang yang merupakan lembaga pendidikan di bawah naungan Yayasan Baitul Maal (YBM) PLN, berkomitmen melanjutkan visi dan misi untuk menebarkan manfaat kepada umat seluas-luasnya. Hal ini diwujudkan dengan memberikan kemanfaatan kepada anak-anak dhuafa untuk mengenyam pendidikan teknologi informasi dan komunikasi selama 1 (satu) tahun. Jurusan pendidikan teknologi informasi dan komunikasi bagi mahasantri dibagi menjadi 2 (dua) jurusan yaitu : Pengembangan Perangkat Lunak (PPL) dan Digital Marketing (DM).
+
+Pada jurusan PPL, mahasantri diajarkan bagaimana membuat website, aplikasi berbasis web, aplikasi mobile, merancang UI/UX, merancang database, dan lain-lain. Jurusan DM, mahasantri diajarkan bagaimana menggunakan tool marketing online melalui internet, memasang iklan melalui Instagram, Facebook, TikTok guna meningkatkan penjualan produk. Selain itu juga diajarkan SEO (Search Engine Optimization). Di bidang kepesantrenan, mahasantri diajarkan Kitab Hadits Arbain, Kitab Kuning Taklim Mutaalim, Tauhid (Aqidatul Awam), Fiqih (Safinatunnajah, Fathul Qorib), Tasawuf (Sulam Taufiq, Bidayatul Hidayah), Tafsir (Al Ibris), Nahwu (Jurumiyah).</p>
+    </div>
+    <div class="news">
+        <h2 style="font-size: 36px; margin-left: 10px;">News</h2>
+        <a href="Tugas_1.html" target="_blank" rel="noopener noreferrer">Beranda</a>
+        <a href="Tugas_1.html" target="_blank" rel="noopener noreferrer">Article</a>
+        <a href="Tugas_1.html" target="_blank" rel="noopener noreferrer">Pendaftaran</a>
+        <a href="Tugas_1.html" target="_blank" rel="noopener noreferrer">Galery</a>
+    </div>
+    </div>
+    
+    <div class="footer"><i>2026 - Develop By Software Development Gen-V</i></div>
+</body>
+</html>
