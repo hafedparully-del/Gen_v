@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Profil PeTIK II Jombang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f8ff;--surface:#fff;--ink:#0c2243;--muted:#4b5f7e;--blue:#0b3c7d;--blue2:#1a6bd1;--yellow:#ffc72c;--green:#12805c;--line:#d6e2f5;--hero1:#0b3c7d;--hero2:#07264f;--on-blue:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07142b;--surface:#0e2142;--ink:#e8f0ff;--muted:#9fb3d4;--line:#1d3866;--hero1:#0b3c7d;--hero2:#041022;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#07142b;--surface:#0e2142;--ink:#e8f0ff;--muted:#9fb3d4;--line:#1d3866;--hero1:#0b3c7d;--hero2:#041022;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hero2);z-index:60}
+a{color:inherit}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.1;margin:0}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--hero2);color:#fff;transition:box-shadow .3s}
+header.sc{box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.2rem}
+.brand img{height:36px;width:auto}
+.menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;font-weight:500;position:relative;transition:background .25s,color .25s}
+.menu a:hover{background:rgba(255,255,255,.12)}
+.menu a[aria-current]{background:var(--yellow);color:#0c2243}
+.burger{display:none;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:10px;padding:8px 12px;font-size:1.1rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 80% -10%,var(--blue2) 0%,transparent 60%),linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;text-align:center;padding:110px 20px 150px}
+.circuit{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.circuit path{fill:none;stroke:#7fb2ff;stroke-width:1.5;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 3.2s .2s ease-out forwards}
+.circuit .pulse{stroke:var(--pc,var(--yellow));stroke-width:3;stroke-linecap:round;stroke-dasharray:40 1160;stroke-dashoffset:0;animation:run 5s 3s linear infinite}
+.circuit circle{fill:var(--yellow);opacity:0;animation:pop .5s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes run{from{stroke-dashoffset:0}to{stroke-dashoffset:-1200}}
+@keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.hero-in{position:relative;max-width:900px;margin:auto}
+.hero h1{font-size:clamp(2.6rem,8vw,5.6rem);font-weight:800;letter-spacing:-.03em}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.w span{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+.w:nth-child(1) span{animation-delay:.3s}.w:nth-child(2) span{animation-delay:.42s}.w:nth-child(3) span{animation-delay:.54s}.w:nth-child(4) span{animation-delay:.66s}
+.w.glow span{background:linear-gradient(100deg,var(--yellow),#fff 45%,var(--yellow));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:up .9s .54s cubic-bezier(.2,.8,.2,1) forwards,shine 4s 1.6s linear infinite}
+@keyframes up{to{transform:none}}
+@keyframes shine{to{background-position:-200% 0}}
+.hero p{font-size:clamp(1.05rem,2.4vw,1.4rem);color:#cfe0fa;margin:22px auto 34px;max-width:620px;opacity:0;animation:fade 1s 1.1s forwards}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;opacity:0;animation:fade 1s 1.3s forwards}
+@keyframes fade{to{opacity:1}}
+.btn{display:inline-block;padding:14px 24px;border-radius:14px;font-weight:600;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn.p{background:var(--yellow);color:#0c2243;box-shadow:0 0 0 0 rgba(255,199,44,.6);animation:ring 2.4s 2.5s infinite}
+.btn.p:hover{box-shadow:0 12px 30px rgba(255,199,44,.4)}
+.btn.s{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn.s:hover{background:rgba(255,255,255,.14)}
+.btn.g{background:#1fa971;color:#fff}
+.btn.g:hover{box-shadow:0 12px 30px rgba(31,169,113,.45)}
+@keyframes ring{70%{box-shadow:0 0 0 16px rgba(255,199,44,0)}100%{box-shadow:0 0 0 0 rgba(255,199,44,0)}}
+
+/* carousel */
+.car-wrap{max-width:1000px;margin:-90px auto 0;padding:0 20px;position:relative;z-index:5}
+.car{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/8;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 30px 60px -20px rgba(7,38,79,.55);border:4px solid var(--surface)}
+.slide{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity .9s,transform 6s ease-out}
+.slide.on{opacity:1;transform:scale(1)}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.cbtn{position:absolute;top:50%;translate:0 -50%;z-index:3;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#0c2243;font-size:1.3rem;cursor:pointer;transition:transform .2s,background .2s}
+.cbtn:hover{transform:scale(1.12);background:var(--yellow)}
+.cbtn.pv{left:14px}.cbtn.nx{right:14px}
+.dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:3}
+.dots button{width:10px;height:10px;border-radius:99px;border:0;background:rgba(255,255,255,.55);cursor:pointer;padding:0;transition:width .35s,background .35s}
+.dots button.on{width:34px;background:var(--yellow)}
+
+/* keunggulan */
+.sec{max-width:1180px;margin:auto;padding:90px 20px 40px}
+.sec h2{font-size:clamp(2rem,5vw,3.2rem);text-align:center;font-weight:800;letter-spacing:-.02em;margin-bottom:48px;color:var(--blue)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sec h2{color:#fff}}
+:root[data-theme="dark"] .sec h2{color:#fff}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{--x:50%;--y:50%;position:relative;grid-column:span 4;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.card::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x) var(--y),rgba(255,199,44,.22),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -18px rgba(11,60,125,.45)}
+.card:hover::after{opacity:1}
+.ic{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:var(--bg);font-size:1.6rem;margin-bottom:16px;transition:transform .4s}
+.card:hover .ic{transform:rotate(-10deg) scale(1.12)}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.card.big{grid-column:span 6;background:linear-gradient(150deg,var(--blue),var(--hero2));color:#fff;border:0;display:flex;flex-direction:column;justify-content:flex-end;min-height:260px}
+.card.big h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.card.big p{color:#cfe0fa;font-size:1.05rem}
+.card.big .ic{background:rgba(255,255,255,.14)}
+.card.md{grid-column:span 3}
+.card.hl{background:var(--yellow);color:#0c2243;border:0}
+.card.hl p{color:#3b3210}.card.hl .ic{background:rgba(255,255,255,.55)}
+.rv{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+.card.rv.in:hover{transform:translateY(-6px)}
+
+/* footer */
+footer{margin-top:90px;background:var(--hero2);color:#cfe0fa;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--yellow),var(--blue2),var(--green),var(--yellow));background-size:300% 100%;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:-300% 0}}
+.ft{max-width:1180px;margin:auto;padding:56px 20px 30px;display:grid;grid-template-columns:1.2fr 1fr auto;gap:40px;align-items:start}
+footer h3{color:#fff;font-size:1.15rem;margin-bottom:14px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none;transition:color .2s,padding .2s}
+footer ul a:hover{color:var(--yellow);padding-left:6px}
+.ft img{max-width:220px;height:auto}
+.copy{border-top:1px solid rgba(255,255,255,.14);text-align:center;padding:18px 20px calc(18px + 60px);font-size:.9rem}
+.copy a:hover{color:var(--yellow)}
+
+/* tes minat */
+.tes{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:8px;background:var(--yellow);color:#0c2243;text-decoration:none;font-weight:600;border-radius:999px;padding:6px 16px 6px 6px;box-shadow:0 12px 30px rgba(0,0,0,.35);animation:bob 3s ease-in-out infinite;transition:transform .25s}
+.tes:hover{transform:scale(1.07)}
+.tes img{height:44px;width:44px;object-fit:contain;border-radius:50%;background:#fff}
+.tes .fb{display:none;width:44px;height:44px;border-radius:50%;background:#fff;place-items:center;font-size:1.3rem}
+@keyframes bob{50%{translate:0 -7px}}
+
+@media (max-width:900px){
+ .card,.card.md,.card.big{grid-column:span 6}
+ .card.big{grid-column:span 12;min-height:200px}
+ .ft{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+ .burger{display:block}
+ .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--hero2);flex-direction:column;padding:10px 20px 18px;border-top:1px solid rgba(255,255,255,.12)}
+ .menu.open{display:flex;animation:fade .3s forwards}
+ .card,.card.md{grid-column:span 12}
+ .hero{padding:80px 20px 130px}
+ .car{aspect-ratio:4/3}
+}
+.pg{display:none}.pg.on{display:block;animation:pgin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes pgin{from{opacity:0;transform:translateY(24px)}}
+body:not(.is-home) .hero{padding-bottom:90px}
+.pg:not(#home) .sec{padding-top:70px}
+body[data-pg=profil]{--pc:#34d399}body[data-pg=kerjasama]{--pc:#ffc72c}body[data-pg=berita]{--pc:#7dd3fc}body[data-pg=sebaran-santri]{--pc:#fb923c}body[data-pg=dashboard-magang]{--pc:#f472b6}
+.sec h2:not(:first-child){margin-top:80px}
+/* profil */
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
+.vw{padding:4px;border-radius:28px;background:conic-gradient(from var(--a),var(--yellow),var(--blue2),var(--green),var(--yellow));animation:spin 6s linear infinite;max-width:860px;margin:auto}
+@keyframes spin{to{--a:360deg}}
+.vid{position:relative;aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:var(--hero2);display:grid;place-items:center;padding:20px;text-align:center;word-break:break-all}
+.vid a{color:#fff;font-weight:600}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lead{max-width:760px;margin:0 auto 18px;font-size:1.15rem;color:var(--muted)}
+.lead.lg{color:var(--ink);font-size:1.35rem}
+.ab{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.abc{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px 26px 26px;overflow:hidden}
+.abc::before{content:"";position:absolute;left:0;top:0;height:6px;width:100%;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform 1s .3s}
+.abc.in::before{transform:none}
+.abc h3{font-size:1.3rem;margin-bottom:10px}.abc p{margin:0;color:var(--muted)}
+/* kerjasama */
+.sub{text-align:center;color:var(--muted);margin:-28px auto 44px;max-width:560px}
+.lg2{position:relative;width:76px;height:76px;border-radius:18px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;font:800 1.3rem "Bricolage Grotesque",sans-serif;color:var(--blue2);margin-bottom:16px;overflow:hidden}
+.lg2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:8px}
+.card:hover .lg2{animation:wob .6s}
+@keyframes wob{30%{transform:rotate(-8deg) scale(1.1)}60%{transform:rotate(6deg)}}
+.card.w6{grid-column:span 6}
+/* berita */
+.flt{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-bottom:28px}
+.sel{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;min-width:220px;transition:border-color .2s,box-shadow .2s}
+.sel:focus{border-color:var(--blue2);box-shadow:0 0 0 4px rgba(26,107,209,.2);outline:0}
+.btn.f{background:var(--blue);color:#fff;border:0;font:inherit;font-weight:600;cursor:pointer}
+.btn.r{background:none;border:1.5px solid var(--line);color:var(--ink);font:inherit;font-weight:600;cursor:pointer}
+.tot{text-align:center;font-size:1.1rem}
+.empty{display:flex;justify-content:center;gap:18px;margin-top:50px}
+.doc{width:96px;height:124px;border-radius:14px;background:var(--surface);border:1px solid var(--line);padding:16px 14px;display:grid;gap:10px;align-content:start;animation:fl 3.2s ease-in-out infinite;box-shadow:0 14px 30px -14px rgba(11,60,125,.4)}
+.doc:nth-child(2){animation-delay:.5s;margin-top:-14px}.doc:nth-child(3){animation-delay:1s}
+.doc i{display:block;height:8px;border-radius:9px;background:linear-gradient(90deg,var(--line) 30%,var(--yellow) 50%,var(--line) 70%);background-size:300% 100%;animation:sh 2.4s linear infinite}
+.doc i:first-child{width:60%}
+@keyframes fl{50%{transform:translateY(-12px)}}
+@keyframes sh{to{background-position:-300% 0}}
+/* sebaran */
+.tt{text-align:center;font-size:clamp(1.4rem,3.5vw,2rem)}
+.tt b{color:var(--blue2);font-size:1.7em;font-family:"Bricolage Grotesque",sans-serif}
+.cr{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cp{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px}
+.cp h3{font-size:1.2rem;margin-bottom:18px}
+.bar{display:grid;grid-template-columns:110px 1fr 36px;gap:10px;align-items:center;margin:10px 0;font-size:.92rem}
+.bar>div{height:14px;border-radius:9px;background:var(--bg);overflow:hidden}
+.bar b{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--blue2),var(--yellow));animation:gr 1.1s .2s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes gr{to{width:var(--w)}}
+.sk{display:block;height:14px;border-radius:9px;margin:18px 0;background:linear-gradient(90deg,var(--line) 30%,var(--bg) 50%,var(--line) 70%);background-size:300% 100%;animation:sh 2s linear infinite}
+.sk:nth-child(2){width:80%}.sk:nth-child(3){width:55%}.sk:nth-child(4){width:35%}
+/* magang */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat{position:relative;border-radius:26px;padding:34px 26px;color:#fff;overflow:hidden;text-align:center;background:linear-gradient(150deg,var(--blue),var(--hero2))}
+.stat:nth-child(2){background:linear-gradient(150deg,#12805c,#0a4a37)}
+.stat:nth-child(3){background:var(--yellow);color:#0c2243}
+.ico{position:relative;width:92px;height:92px;margin:0 auto 18px;display:grid;place-items:center;font-size:2.4rem}
+.ico::before{content:"";position:absolute;inset:0;border-radius:50%;border:3px dashed currentColor;opacity:.55;animation:rot 12s linear infinite}
+.ico img{position:absolute;inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);object-fit:contain;background:#fff;border-radius:50%;padding:8px}
+@keyframes rot{to{transform:rotate(360deg)}}
+.stat h3{font-size:1.15rem;font-weight:600;opacity:.9}
+.stat .n{display:block;font:800 clamp(3rem,7vw,4.6rem)/1.1 "Bricolage Grotesque",sans-serif;margin:6px 0}
+/* berita */
+.nw{text-decoration:none;color:inherit}
+.nim{aspect-ratio:16/10;margin:-26px -26px 16px;background:linear-gradient(135deg,var(--blue),var(--blue2));overflow:hidden}
+.nim img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.nw:hover .nim img{transform:scale(1.08)}
+.tg{display:inline-block;background:var(--yellow);color:#0c2243;font-size:.8rem;font-weight:600;border-radius:99px;padding:2px 12px;margin-bottom:10px}
+.nw small{display:block;margin-top:12px;color:var(--muted)}
+/* tes minat */
+.qz{max-width:640px;margin:auto}
+.pgb{height:10px;border-radius:9px;background:var(--line);overflow:hidden;margin-bottom:18px}
+.pgb i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--blue2),var(--yellow));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.qc{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:34px 28px;text-align:center;animation:qin .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes qin{from{opacity:0;transform:translateX(40px)}}
+.qc small{color:var(--muted)}
+.qc h3{font-size:clamp(1.3rem,3.5vw,1.8rem);margin:12px 0 26px}
+.ops{display:flex;gap:12px;justify-content:center}
+.op{flex:1;max-width:200px;font:inherit;font-weight:600;font-size:1.1rem;padding:16px;border-radius:16px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
+.op:hover{transform:translateY(-4px) scale(1.04);border-color:var(--yellow);background:var(--yellow);color:#0c2243}
+.res .bar{margin:14px 0;text-align:left}
+.cta2{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+@media (max-width:900px){.ab,.stats,.cr{grid-template-columns:1fr}}
+@media (max-width:720px){.card.w6{grid-column:span 12}.bar{grid-template-columns:84px 1fr 32px}}
+@media (prefers-reduced-motion:reduce){.bar b{width:var(--w)}.abc::before{transform:none}.pg.on{animation:none}}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ .rv,.hero p,.cta{opacity:1;transform:none}.w span{transform:none}.circuit path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body class="is-home" data-pg="home">
+<header id="top">
+ <div class="nav">
+  <a class="brand" href="#home"><img src="https://webpetik.petikjombang.com/static/images/logo.png" alt="Logo PeTIK" onerror="this.style.display='none'">PeTIK Jombang</a>
+  <button class="burger" aria-label="Menu" aria-expanded="false" id="bg">☰</button>
+  <ul class="menu" id="mn">
+   <li><a href="#home" aria-current="page">Home</a></li>
+   <li><a href="#profil">Profil</a></li>
+   <li><a href="#kerjasama">Kerjasama</a></li>
+   <li><a href="#berita">Berita</a></li>
+   <li><a href="#sebaran-santri">Dashboard Sebaran Santri</a></li>
+   <li><a href="#dashboard-magang">Dashboard Magang 2025</a></li>
+  </ul>
+ </div>
+</header>
+
+<main>
+<section class="hero">
+ <svg class="circuit" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <path d="M0 120H220L280 60H520L580 120H900"/>
+  <path d="M0 300H160L220 360H460L520 300H760L820 240H1200"/>
+  <path d="M300 600V480L360 420H640L700 480H1000L1060 540H1200"/>
+  <path d="M1200 90H1000L940 150H820"/>
+  <path class="pulse" d="M0 300H160L220 360H460L520 300H760L820 240H1200"/>
+  <circle cx="900" cy="120" r="6" style="animation-delay:2.2s"/><circle cx="460" cy="360" r="6" style="animation-delay:2.5s"/><circle cx="1000" cy="480" r="6" style="animation-delay:2.8s"/><circle cx="820" cy="150" r="6" style="animation-delay:3s"/>
+ </svg>
+ <div class="hero-in">
+  <h1><span class="w"><span>Welcome</span></span> <span class="w"><span>to</span></span> <span class="w glow"><span>PeTIK</span></span> <span class="w glow"><span>Jombang</span></span></h1>
+  <p>Pesantren yang Melahirkan Santri dengan Kemampuan IT</p>
+  <div class="cta">
+   <a class="btn p" href="https://pmb.petikjombang.com/" target="_blank" rel="noopener">Pendaftaran Mahasantri Baru</a>
+   <a class="btn s" href="https://www.google.com/maps?q=PeTIK%20II%20Jombang" target="_blank" rel="noopener">Lihat Lokasi di Google Maps</a>
+   <a class="btn g" href="https://wa.me/6281393963363" target="_blank" rel="noopener">Hubungi Kami via Whatsapp</a>
+  </div>
+ </div>
+</section>
+
+<div class="pg on" id="home">
+<div class="car-wrap">
+ <div class="car" id="car" aria-roledescription="carousel">
+  <div class="slide on"><img src="assets/Foto1.jpg" alt="..." onerror="this.style.display='none'"></div>
+  <div class="slide"><img src="assets/Foto2.jpeg" alt="..." onerror="this.style.display='none'"></div>
+  <div class="slide"><img src="assets/Foto3.jpeg" alt="..." onerror="this.style.display='none'"></div>
+  <button class="cbtn pv" aria-label="Previous">‹</button>
+  <button class="cbtn nx" aria-label="Next">›</button>
+  <div class="dots"></div>
+ </div>
+</div>
+
+<section class="sec">
+ <h2>9 Keunggulan PeTIK Jombang</h2>
+ <div class="bento">
+  <article class="card big rv"><div class="ic">🎓</div><h3>Gratis Biaya Pendidikan</h3><p>Kami menyediakan pendidikan tanpa biaya untuk santri dari keluarga dhuafa.</p></article>
+  <article class="card md rv"><div class="ic">💻</div><h3>Fasilitas IT &amp; Boarding Terbaik</h3><p>Dengan fasilitas lengkap dan laboratorium komputer berkelas terbaik.</p></article>
+  <article class="card md rv"><div class="ic">💰</div><h3>Uang Saku Selama Masa Pendidikan</h3><p>Santri mendapatkan uang saku selama masa pendidikan (1 tahun) untuk mendukung kehidupan sehari-hari.</p></article>
+  <article class="card rv"><div class="ic">📈</div><h3>Fokus IT (Digital Marketing dan Pengembangan Perangkat Lunak)</h3><p>Pendidikan difokuskan pada keterampilan digital yang sangat dibutuhkan di dunia kerja.</p></article>
+  <article class="card rv"><div class="ic">📖</div><h3>Bonus Pelatihan Sertifikasi + Tahfidz</h3><p>Santri mendapatkan pelatihan untuk sertifikasi industri serta tahfidz Quran.</p></article>
+  <article class="card hl rv"><div class="ic">🚀</div><h3>Satu Tahun Siap Kerja</h3><p>Santri dipersiapkan untuk langsung bekerja dengan kemampuan yang relevan di industri.</p></article>
+  <article class="card rv"><div class="ic">🚌</div><h3>Gratis Pembiayaan Pemberangkatan dan Kepulangan</h3><p>Pemberangkatan dan kepulangan santri ke tempat pendidikan sepenuhnya ditanggung.</p></article>
+  <article class="card rv"><div class="ic">🌙</div><h3>Pembinaan Karakter</h3><p>Santri akan diberikan pembekalan diniyah ahlus sunnah wal jamaah agar memiliki akhlak mulia.</p></article>
+  <article class="card rv"><div class="ic">🤝</div><h3>Kerjasama dengan Dunia Industri dan Dunia Pendidikan</h3><p>Kerjasama dengan mitra unggulan untuk menunjang karir santri.</p></article>
+ </div>
+</section>
+</div>
+
+<div class="pg" id="profil"><section class="sec">
+ <h2>Video Profil</h2>
+ <div class="vw rv"><div class="vid"><a href="https://www.youtube.com/embed/BgNR8w2ZZ1E" target="_blank" rel="noopener">https://www.youtube.com/embed/BgNR8w2ZZ1E</a><iframe src="https://www.youtube.com/embed/BgNR8w2ZZ1E" title="Video Profil" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>
+ <h2>Tentang PeTIK Jombang</h2>
+ <p class="lead lg rv">PeTIK II Jombang adalah lembaga pendidikan yang dibina oleh YBM PLN (Yayasan Baitul Maal PLN) dengan tujuan untuk mencetak generasi muda yang tidak hanya terampil di bidang Teknologi Informasi dan Komunikasi (TIK), tetapi juga memiliki karakter yang kuat dan berakhlakul karimah. Kami percaya bahwa kemajuan ilmu pengetahuan harus seiring sejalan dengan pembentukan karakter yang mengedepankan nilai-nilai moral dan agama.</p>
+ <p class="lead rv">Kami menyediakan pendidikan di bidang Digital Marketing dan Pengembangan Perangkat Lunak, yang relevan dengan perkembangan industri digital saat ini, untuk mencetak generasi yang siap menghadapi dunia kerja.</p>
+ <h2>Tentang Kami</h2>
+ <div class="ab">
+  <article class="abc rv" style="--c:var(--blue2)"><h3>Visi dan Misi</h3><p>PeTIK Jombang bertujuan untuk mencetak generasi muda yang terampil di bidang Teknologi Informasi dan Komunikasi (TIK) dengan karakter yang kuat dan berakhlakul karimah. Kami percaya bahwa kemajuan ilmu pengetahuan harus seiring sejalan dengan pembentukan karakter yang mengedepankan nilai-nilai moral dan agama dalam menyukseskan program M2M (Mustahik to Muzakki).</p></article>
+  <article class="abc rv" style="--c:var(--yellow)"><h3>Pendidikan Gratis dan Fasilitas</h3><p>Pendidikan di PeTIK Jombang gratis (tidak dipungut biaya sama sekali). Santri akan mendapatkan fasilitas asrama, makan dan minum, uang saku, lab. komputer dengan spesifikasi tinggi, dan akses internet cepat. Program pendidikan berlangsung selama 1 tahun dengan tujuan siap kerja di bidang Digital Marketing dan Pengembangan Perangkat Lunak.</p></article>
+  <article class="abc rv" style="--c:var(--green)"><h3>Fokus pada Santri Dhuafa</h3><p>PeTIK Jombang hanya menerima santri dari keluarga dhuafa untuk mendapatkan pendidikan berkualitas tanpa kendala biaya. Dengan beasiswa dan pendampingan, kami memastikan santri mendapatkan akses pendidikan setara dengan anak-anak lainnya, serta pengembangan karakter yang positif agar siap menghadapi dunia digital dan berkontribusi di masyarakat.</p></article>
+ </div>
+</section></div>
+
+<div class="pg" id="kerjasama"><section class="sec">
+ <h2>Kerjasama dengan Mitra</h2>
+ <p class="sub">Partner kami dalam menciptakan inovasi dan pendidikan berbasis teknologi.</p>
+ <div class="bento">
+  <article class="card w6 rv"><div class="lg2">PL<img src="https://webpetik.petikjombang.com/static/images/mitra/pln.png" alt="Partner 1 Logo" onerror="this.remove()"></div><h3>PLN</h3><p>PLN adalah perusahaan milik negara yang bertanggung jawab atas penyediaan tenaga listrik di Indonesia. Sebagai perusahaan listrik terbesar di Indonesia, PLN tidak hanya menyediakan listrik untuk rumah tangga dan industri, tetapi juga secara tidak langsung melalui para muzakinya berperan dalam mendukung YBM PLN dalam menebarkan kemanfaatan.</p></article>
+  <article class="card w6 rv"><div class="lg2">YB<img src="https://webpetik.petikjombang.com/static/images/mitra/ybmpln.png" alt="Partner 2 Logo" onerror="this.remove()"></div><h3>YBM PLN</h3><p>YBM PLN adalah yayasan yang berada di bawah naungan PLN. Yayasan ini berfokus pada kegiatan sosial dan pemberdayaan masyarakat, termasuk melalui pendidikan, kesehatan, dan bantuan sosial lainnya termasuk melalu PeTIK Jombang dalam menyediakan pendidikan teknologi bagi anak-anak dari keluarga dhuafa.</p></article>
+  <article class="card rv"><div class="lg2">IC<img src="https://webpetik.petikjombang.com/static/images/mitra/icon+.png" alt="Partner 3 Logo" onerror="this.remove()"></div><h3>Icon Plus Surabaya</h3><p>ICON+ adalah perusahaan yang bergerak di bidang penyediaan layanan telekomunikasi dan jaringan internet. Dalam hal ini, ICON+ mendukung PeTIK Jombang dengan penyediaan akses internet cepat dan kesempatan magang bagi santri dari jurusan Digital Marketing dan Pengembangan Perangkat Lunak.</p></article>
+  <article class="card rv"><div class="lg2">DB<img src="https://webpetik.petikjombang.com/static/images/mitra/dobelyuland.png" alt="Partner 1 Logo" onerror="this.remove()"></div><h3>PT. DOBELYULAND</h3><p>PT. DOBELYULAND Jombang bergerak di bidang real estate dan pengembangan properti, menawarkan hunian berkualitas dan proyek komersial yang inovatif di wilayah Jombang, berfokus pada pembangunan berkelanjutan dan ramah lingkungan.</p></article>
+  <article class="card rv"><div class="lg2">RK<img src="https://webpetik.petikjombang.com/static/images/mitra/resikrek.png" alt="Partner 2 Logo" onerror="this.remove()"></div><h3>PT. RESIKREK JOMBANG</h3><p>PT. RESIKREK Jombang menyediakan layanan pengelolaan sampah dan limbah industri, mendukung keberlanjutan lingkungan dengan solusi pengelolaan sampah yang efisien, ramah lingkungan, dan sesuai dengan regulasi. PT. RESIKREK memberikan kesempatan magang santri kami dalam membuat konten sosmed.</p></article>
+  <article class="card rv"><div class="lg2">MP<img src="https://webpetik.petikjombang.com/static/images/mitra/masterprima.png" alt="Partner 3 Logo" onerror="this.remove()"></div><h3>PT. MASTER PRIMA MALANG</h3><p>LBB MASTERPRIMA merupakan sebuah lembaga bimbingan belajar yang lebih fokus pada pendampingan belajar siswa masuk CPNS, KEDINASAN, UTBK dan TNI POLRI. Masterprima didirikan oleh M. Hasyim Ashari, S.Pd, CPS seorang motivator nasional, penulis buku-buku di PT. PENERBIT ERLANGGA dan sudah menggeluti dunia bimbingan belajar sejak tahun 1995. Masterprima berdiri sejak tanggal 18 Januari 2010</p></article>
+  <article class="card rv"><div class="lg2">DD<img src="https://webpetik.petikjombang.com/static/images/mitra/deardream.png" alt="Partner 1 Logo" onerror="this.remove()"></div><h3>DEAR DREAM JOMBANG by DR.ANANGWIB SKIN HEALTH</h3><p>Klinik perawatan kecantikan kulit dan rambut sejak 2020 Kami melayani berbagai macam perawatan yang dilakukan oleh para beautician yang berpengalaman serta tindakan bedah minor yang dilakukan oleh dokter ahli, bersertifikat dan berpengalaman.</p></article>
+  <article class="card rv"><div class="lg2">PT<img src="https://webpetik.petikjombang.com/static/images/mitra/pti.png" alt="Partner 2 Logo" onerror="this.remove()"></div><h3>PT. Piramida Teknologi Informasi (SURABAYA)</h3><p>All-in-One Professional Solution for Your Business. We provide various types of information technology services that you can choose from and tailored to your unique needs.</p></article>
+  <article class="card rv"><div class="lg2">AK<img src="https://webpetik.petikjombang.com/static/images/mitra/alkhusyu.png" alt="Partner 3 Logo" onerror="this.remove()"></div><h3>Lembaga Pendidikan Al-Khusyu’</h3><p>Lembaga Pendidikan Al-Khusyu’ Blitar ini mengelola beberapa unit pendidikan diantaranya: PAUD Al-Khusyu’, RA Al-Khusyu’, Madrasah Ibtidaiyah, SMP Pesantren, Pondok Pesantren</p></article>
+  <article class="card rv"><div class="lg2">DT<img src="https://webpetik.petikjombang.com/static/images/mitra/deevatech.png" alt="Partner 3 Logo" onerror="this.remove()"></div><h3>Deeva Tech (JOMBANG)</h3><p>Merupakan perusahaan yang bergerak dalam pengembangan aplikasi (software house) sekaligus sebagai perusahaan yang bergerak dalam digital marketing di Jombang.</p></article>
+  <article class="card rv"><div class="lg2">BB<img src="https://webpetik.petikjombang.com/static/images/mitra/bbm.jpeg" alt="Partner 3 Logo" onerror="this.remove()"></div><h3>PT. Borobudur Bumi Mandiri</h3><p>PT. BOROBUDUR BUMI MANDIRI merupakan perusahaan yang bergerak di bidang pelaksanaan dan tergabung dalam Asosiasi GAPEKSINDO. PT. BOROBUDUR BUMI MANDIRI berlokasi di KAB. SIGI, Indonesia, tepatnya di Jl. Tara Desa Kalukubula KAB. SIGI, Indonesia. PT. BOROBUDUR BUMI MANDIRI memiliki reputasi baik dalam memberikan layanan berkualitas tinggi di sektor konstruksi.</p></article>
+ </div>
+</section></div>
+
+<div class="pg" id="berita"><section class="sec">
+ <h2>Daftar Artikel</h2>
+ <div class="flt">
+  <select class="sel" id="cat" aria-label="Kategori"><option value="">-- Pilih Kategori --</option><option>Software</option><option>Bisnis</option><option>Umum</option><option>Agama</option><option>Kepribadian</option><option>K3</option></select>
+  <button class="btn f" type="button" id="fl">Filter</button><button class="btn r" type="button" id="rs">Reset</button>
+ </div>
+ <p class="tot"><strong>Total Artikel:</strong> <span id="ta">0</span></p>
+ <div class="bento" id="nl"></div>
+ <div class="empty" id="em" aria-hidden="true"><div class="doc"><i></i><i></i><i></i></div><div class="doc"><i></i><i></i><i></i></div><div class="doc"><i></i><i></i><i></i></div></div>
+</section></div>
+
+<div class="pg" id="sebaran-santri"><section class="sec">
+ <h2>Sebaran Santri</h2>
+ <div class="flt"><label for="thn">Pilih Tahun Ajaran:</label>
+  <select class="sel" id="thn"><option>Semua Tahun Ajaran</option><option>2022/2023</option><option>2023/2024</option><option>2024/2025</option><option>2025/2026</option><option>2026/2027</option><option>2027/2028</option></select></div>
+ <h3 class="tt">Total Santri: <b id="tn" data-n="125">125</b></h3>
+ <div class="cr">
+  <div class="cp rv"><h3>Santri per Provinsi</h3><div id="cpv"></div></div>
+  <div class="cp rv"><h3>Santri per Jurusan</h3><div id="cjr"></div></div>
+ </div>
+</section></div>
+
+<div class="pg" id="dashboard-magang"><section class="sec">
+ <h2>📊 Dashboard Magang Santri 2025</h2>
+ <div class="stats">
+  <article class="stat rv"><div class="ico">👥<img src="https://cdn-icons-png.flaticon.com/512/2645/2645897.png" alt="Santri Icon" onerror="this.remove()"></div><h3>Santri Terdaftar</h3><span class="n" data-n="44">44</span></article>
+  <article class="stat rv"><div class="ico">📝<img src="https://cdn-icons-png.flaticon.com/512/5957/5957590.png" alt="Laporan Icon" onerror="this.remove()"></div><h3>Laporan Kegiatan</h3><span class="n" data-n="2082">2082</span></article>
+  <article class="stat rv"><div class="ico">🧩<img src="https://cdn-icons-png.flaticon.com/512/9068/9068379.png" alt="Kelompok Icon" onerror="this.remove()"></div><h3>Kelompok Magang</h3><span class="n" data-n="11">11</span></article>
+ </div>
+</section></div>
+
+<div class="pg" id="tes-minat"><section class="sec">
+ <h2>Tes Minat Bakat IT</h2>
+ <div class="qz"><div class="pgb"><i id="pb"></i></div><div id="qz"></div></div>
+</section></div>
+</main>
+
+<footer>
+ <div class="ft">
+  <div>
+   <h3>Address</h3>
+   <p>Pesantren Teknologi Informasi dan Komunikasi Jombang YBM PLN</p>
+   <p>Jl. KH. Bisri Syansuri, RT.001/RW.005, Plosogeneng, Kec. Jombang, Kabupaten Jombang, Jawa Timur 61416</p>
+  </div>
+  <div>
+   <h3>Information</h3>
+   <ul>
+    <li><a href="https://www.instagram.com/petik_jombang?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" rel="noopener">Instagram @petik_jombang</a></li>
+    <li><a href="https://www.youtube.com/@tvpetikjombang" target="_blank" rel="noopener">Youtube Channel @tvpetikjombang</a></li>
+    <li><a href="https://www.facebook.com/petikIIjombang" target="_blank" rel="noopener">Facebook @Petik Jombang</a></li>
+    <li><a href="https://wa.me/6281393963363" target="_blank" rel="noopener">WhatsApp Admin (+62 813-9396-3363)</a></li>
+    <li><a href="mailto:petikjombang@gmail.com">Email: petikjombang@gmail.com</a></li>
+   </ul>
+  </div>
+  <div><img src="https://webpetik.petikjombang.com/static/images/logo2.png" alt="PeTIK Jombang &amp; YBM PLN Logo" onerror="this.style.display='none'"></div>
+ </div>
+ <div class="copy">© 2025 PeTIK Jombang | <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></div>
+</footer>
+
+<a class="tes" href="#tes-minat" title="Tes Minat Bakat IT"><img src="https://webpetik.petikjombang.com/static/images/tes-minat.png" alt="Tes Minat IT" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="fb">📝</span>Tes Minat IT</a>
+
+<script>
+(function(){
+ var hd=document.querySelector('header');
+ addEventListener('scroll',function(){hd.classList.toggle('sc',scrollY>10)},{passive:true});
+ var bg=document.getElementById('bg'),mn=document.getElementById('mn');
+ bg.onclick=function(){var o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+ // carousel
+ var car=document.getElementById('car'),sl=car.querySelectorAll('.slide'),dots=car.querySelector('.dots'),i=0,t;
+ sl.forEach(function(_,n){var b=document.createElement('button');b.setAttribute('aria-label','Slide '+(n+1));b.onclick=function(){go(n)};dots.appendChild(b)});
+ var db=dots.children;
+ function go(n){sl[i].classList.remove('on');db[i].classList.remove('on');i=(n+sl.length)%sl.length;sl[i].classList.add('on');db[i].classList.add('on');clearInterval(t);t=setInterval(function(){go(i+1)},5000)}
+ car.querySelector('.pv').onclick=function(){go(i-1)};
+ car.querySelector('.nx').onclick=function(){go(i+1)};
+ go(0);
+ // reveal sekali saat masuk layar, berurutan
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var k=[].indexOf.call(document.querySelectorAll('.rv'),e.target)%3;e.target.style.transitionDelay=(k*90)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+ // cahaya mengikuti kursor
+ document.querySelectorAll('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-r.left)+'px');c.style.setProperty('--y',(e.clientY-r.top)+'px')})});
+})();
+</script>
+<script>
+(function(){
+ var PAGES=["home","profil","kerjasama","berita","sebaran-santri","dashboard-magang","tes-minat"];
+ /* Data grafik Sebaran Santri: isi per tahun ajaran, contoh: "2024/2025":{total:30,provinsi:{"Jawa Timur":12},jurusan:{"Digital Marketing":15}} */
+ var DATA={"Semua Tahun Ajaran":{total:125,provinsi:{},jurusan:{}}};
+ var still=matchMedia("(prefers-reduced-motion:reduce)").matches;
+ function count(root){root.querySelectorAll("[data-n]").forEach(function(el){var n=+el.dataset.n;if(still){el.textContent=n;return}var t0=performance.now();(function f(t){var p=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)})}
+ function draw(id,obj){var c=document.getElementById(id),k=Object.keys(obj);if(!k.length){c.innerHTML='<i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i>';return}var m=Math.max.apply(null,k.map(function(x){return obj[x]}));c.innerHTML=k.map(function(x){return '<div class="bar"><span>'+x+'</span><div><b style="--w:'+(obj[x]/m*100)+'%"></b></div><em>'+obj[x]+'</em></div>'}).join("")}
+ var thn=document.getElementById("thn"),tn=document.getElementById("tn");
+ function upd(){var d=DATA[thn.value];if(d){tn.dataset.n=d.total;tn.textContent=d.total;count(tn.parentNode)}else{tn.removeAttribute("data-n");tn.textContent="–"}draw("cpv",d?d.provinsi:{});draw("cjr",d?d.jurusan:{})}
+ thn.onchange=upd;upd();
+ /* Daftar artikel Berita: isi di sini. Contoh: {judul:'Judul',kategori:'Software',tanggal:'1 Januari 2025',gambar:'https://.../foto.jpg',ringkas:'Ringkasan singkat',url:'https://...'} */
+ var ARTIKEL=[];
+ var cat=document.getElementById('cat'),nl=document.getElementById('nl'),ta=document.getElementById('ta'),em=document.getElementById('em');
+ function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+ function news(){var v=cat.value,L=ARTIKEL.filter(function(a){return !v||a.kategori===v});ta.textContent=L.length;em.style.display=L.length?'none':'flex';nl.innerHTML=L.map(function(a){return '<a class="card nw rv in" href="'+esc(a.url||'#')+'"><div class="nim"><img src="'+esc(a.gambar)+'" alt="'+esc(a.judul)+'" onerror="this.remove()"></div><span class="tg">'+esc(a.kategori)+'</span><h3>'+esc(a.judul)+'</h3><p>'+esc(a.ringkas)+'</p><small>'+esc(a.tanggal)+'</small></a>'}).join('')}
+ cat.onchange=news;document.getElementById('fl').onclick=news;document.getElementById('rs').onclick=function(){cat.value='';news()};news();
+ /* Tes Minat: ganti pertanyaan di bawah. Format: [pernyataan, 'dm' (Digital Marketing) atau 'ppl' (Pengembangan Perangkat Lunak)] */
+ var TES=[['Saya senang membuat desain atau konten untuk media sosial.','dm'],['Saya penasaran bagaimana aplikasi dan website dibuat.','ppl'],['Saya suka mempromosikan sesuatu agar banyak orang tertarik.','dm'],['Saya senang memecahkan masalah dengan logika langkah demi langkah.','ppl'],['Saya tertarik membaca data penjualan atau jumlah pengunjung.','dm'],['Saya sabar mencari penyebab ketika sesuatu error.','ppl'],['Saya suka menulis caption, cerita, atau ajakan untuk orang lain.','dm'],['Saya ingin membuat program yang bisa dipakai banyak orang.','ppl']];
+ var qz=document.getElementById('qz'),pb=document.getElementById('pb'),qi=0,sc={dm:0,ppl:0};
+ function bar(n,p){return '<div class="bar" style="grid-template-columns:170px 1fr 44px"><span>'+n+'</span><div><b style="--w:'+p+'%"></b></div><em>'+p+'%</em></div>'}
+ function tq(){
+  pb.style.width=(qi/TES.length*100)+'%';
+  if(qi>=TES.length){var t=sc.dm+sc.ppl,a=t?Math.round(sc.dm/t*100):0,b=t?100-a:0,w=!t?'Belum terlihat, coba ulangi tes':sc.dm===sc.ppl?'Digital Marketing dan Pengembangan Perangkat Lunak':sc.dm>sc.ppl?'Digital Marketing':'Pengembangan Perangkat Lunak';
+   qz.innerHTML='<div class="qc res"><small>Minat kamu paling dekat dengan</small><h3>'+w+'</h3>'+bar('Digital Marketing',a)+bar('Pengembangan Perangkat Lunak',b)+'<div class="cta2"><a class="btn p" href="https://pmb.petikjombang.com/" target="_blank" rel="noopener">Pendaftaran Mahasantri Baru</a><button class="btn r" type="button" id="ul">Ulangi Tes</button></div></div>';
+   document.getElementById('ul').onclick=function(){qi=0;sc={dm:0,ppl:0};tq()};return}
+  qz.innerHTML='<div class="qc"><small>'+(qi+1)+' / '+TES.length+'</small><h3>'+TES[qi][0]+'</h3><div class="ops"><button type="button" class="op" data-v="1">Ya</button><button type="button" class="op" data-v="0">Tidak</button></div></div>';
+  qz.querySelectorAll('.op').forEach(function(x){x.onclick=function(){if(x.dataset.v==='1')sc[TES[qi][1]]++;qi++;tq()}})}
+ tq();
+ var first=true;
+ function show(){
+  var h=(location.hash||"#home").slice(1);if(PAGES.indexOf(h)<0)h="home";
+  document.querySelectorAll(".pg").forEach(function(p){p.classList.toggle("on",p.id===h)});
+  document.querySelectorAll(".menu a").forEach(function(a){if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  document.body.dataset.pg=h;document.body.classList.toggle("is-home",h==="home");
+  if(!first){var hero=document.querySelector(".hero");hero.replaceWith(hero.cloneNode(true));scrollTo(0,0)}
+  first=false;
+  document.getElementById("mn").classList.remove("open");
+  count(document.getElementById(h));
+ }
+ addEventListener("hashchange",show);show();
+})();
+</script>
+</body>
+</html>
