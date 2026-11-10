@@ -1,0 +1,16 @@
+let alas = 10;
+let tinggi = 8;
+let luas = 0.5 * alas * tinggi;
+console.log("Luas Segitiga:", luas);
+ Luas Segitiga: 40
+
+let i = 2;
+while (i <= 10) {
+  console.log(i);
+  i += 2;
+}
+VM74:3 2
+VM74:3 4
+VM74:3 6
+VM74:3 8
+VM74:3 10
