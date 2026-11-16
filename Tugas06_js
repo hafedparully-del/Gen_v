@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // bilangan terbesar dari 3 angka
+        let a = 1;
+        let b = 2;
+        let c = 9;
+if (a >= b && a >= c) {
+    console.log("" + a);
+} else if (b >= a && b >= c) {
+    console.log("" + b);
+} else {
+    console.log("" + c);
+}
+
+        // ubah nilai angka menjadi predikat
+let nilai = 90;
+if (nilai >= 90) {
+    console.log("predikat: A");
+} else if (nilai >= 80) {
+    console.log("predikat: B");
+} else if (nilai >= 70) {
+console.log("predikat: C");
+} else {
+    console.log("prediakat: D");
+}
+
+        // nama hari dengan switch angka 1-7
+       let hari = 1;
+switch (hari) {
+    case 1:
+        console.log("senin");
+    case 2:
+        console.log("selasa");
+    case 3:
+        console.log("rabu");
+    case 4:
+        console.log("kamis");
+    case 5:
+        console.log("jumat");
+    case 6:
+        console.log("sabtu");
+    case 7:
+        console.log("minggu");
+}
+    </script>
+</body>
+</html>
