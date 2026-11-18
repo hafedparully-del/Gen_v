@@ -1,0 +1,5 @@
+const angka = [43, 21, 10, 12, 15, 122, 33, 22];
+
+const hasil = angka.filter(angka => angka > 10);
+
+console.log(hasil);
